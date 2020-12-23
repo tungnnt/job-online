@@ -1,0 +1,19 @@
+{
+  "name": "job-online",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5",
+    "fs-extra": "^9.0.1",
+    "randexp": "^0.5.3",
+    "random-ipv4": "^1.0.2"
+  }
+}
