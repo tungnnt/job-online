@@ -7,8 +7,11 @@ const cheerio = require('cheerio')
 const getPendingTask = require("./api/get-pending-task")
 const submitTask = require("./api/submit-task")
 const fs = require('fs')
+const getUserInput = require('./helper/getUserInput')
 
 setImmediate(async () => {
+    const { cookie: verifiedCookie, captcha } = await getUserInput()
+
     while (true) {
         try {
             const cookie = randomCookie()
@@ -17,7 +20,7 @@ setImmediate(async () => {
             const ipHeader = randomIPHeader()
             console.log({ cookie })
 
-            let response = await register('PHPSESSID=mtk6io8n7dh96f0t1onl8n65f6', phone, '7478', name, ipHeader)
+            let response = await register(verifiedCookie, phone, captcha, name, ipHeader)
             console.log(response)
             fs.appendFileSync('./data/accounts.txt', phone + '\n')
 
